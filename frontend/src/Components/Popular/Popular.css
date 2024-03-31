@@ -1,0 +1,48 @@
+.popular {
+    text-align: center; /* Center align the content */
+    padding-top: 150px;
+  }
+  
+  .popular h1 {
+    padding-top: 65px;
+    color: #171717;
+    font-size: 24px; /* Adjust as needed */
+    font-weight: bold;
+    margin-bottom: 20px; /* Add some space below the heading */
+  }
+  
+  .popular hr {
+    width: 50px;
+    height: 3px;
+    border: none;
+    background-color: #252525;
+    margin-bottom: 20px; /* Add some space below the horizontal line */
+  }
+  
+  .popular-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align the items horizontally */
+    gap: 20px; /* Add some space between items */
+  }
+  
+  .item {
+    padding-top: 20px;
+    width: 200px; /* Adjust the width of each item */
+    text-align: left; /* Align content to the left */
+  }
+  
+  .item img {
+    width: 90%; /* Make the image fill the container */
+    height: 83%; /* Allow the height to adjust automatically */
+    border-radius: 10px; /* Add some border radius to the image */
+    margin-bottom: 10px; /* Add some space below the image */
+  }
+  
+  .item .name,
+  .item .price {
+    font-size: 16px; /* Adjust the font size of the name and price */
+    color: #333; /* Adjust the color of the name and price */
+    margin-bottom: 5px; /* Add some space between name and price */
+  }
+  

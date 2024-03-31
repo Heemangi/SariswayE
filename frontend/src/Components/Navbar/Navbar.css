@@ -1,0 +1,93 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 0 1px 3px -2px black;
+    font-size:large;
+  }
+  
+  .navmenu {
+    list-style: none;
+    display: flex;
+    padding-right: 30px;
+    
+  }
+  .navli{
+    padding-left: 260px;
+  }
+  
+  .navmenu li {
+    margin-right: 80px;
+    cursor: pointer;
+  }
+
+  .navmenu hr{
+    border: none;
+    width: 80%;
+    height:3px;
+    border-radius: 10px;
+    background: #FF4141;
+  }
+  
+  .navlogo img {
+    width: 180px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .search-container {
+    position: relative;
+  }
+  
+  .search-bar {
+    padding: 15px 10px 10px 15px; /* Adjust padding to make space for the icon */
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 300px; /* Adjust width as needed */
+    margin-left: -50px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 16px; 
+    color: black;
+  }
+  
+  .user-icon {
+    cursor: pointer;
+    padding-left: 15px;
+    margin-right: 10px; /* Adjust margin for user icon */
+    font-size: 27px; /* Adjust font size to increase icon size */
+    line-height: 24px;
+    padding-bottom: 38px;
+  }
+  
+  .cart-icon {
+    cursor: pointer;
+    margin-left: 15px;
+    padding-right: 15px;
+    /* font-size: 24px; Adjust font size to increase icon size */
+    /* line-height: 24px; */
+    width: 28px;
+    padding-bottom: 35px;
+  }
+  
+  .nav-cart-count{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -74px;
+    margin-bottom: 16px;
+    margin-left: 78px;
+    border-radius: 11px;
+    font-size: 18px;
+    background: rgb(105, 19, 19);
+    color: white;
+  }
