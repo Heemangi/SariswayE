@@ -20,28 +20,28 @@ import img17 from "./17.jpg"
 const all_products = [
     {
         id: 1,
-        name: "Printed Organza Lehanga in peach",
+        name: "Printed Organza Lehanga in Peach",
         image: img1,
         category:"lehangas",
         price: 6999,
     },
     {
         id: 2,
-        name: "Embroidered Saree in Black Georgette",
+        name: "Embroidered Georgette Saree in Black",
         image: img2,
         category:"sarees",
         price: 3999,
     },
     {
         id: 3,
-        name: "Printed weaving silk saree in pink",
+        name: "Printed weaving silk saree in Pink",
         image: img3,
         category:"sarees",
         price: 5999,
     },
     {
         id: 4,
-        name: "Net Embroidered lehanga in pink",
+        name: "Net Embroidered lehanga in Pink",
         image: img4,
         category:"lehangas",
         price: 7999,
@@ -111,7 +111,7 @@ const all_products = [
     },
     {
         id: 14,
-        name: "Sequin Faux Georgette Palazzo Suit in orange ",
+        name: "Sequin Faux Georgette Palazzo Suit in Orange",
         image: img14,
         category:"suits",
         price: 6999,
