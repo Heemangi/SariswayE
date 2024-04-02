@@ -71,7 +71,7 @@ const Navbar = () => {
                     <li onClick={() => { setMenu("Suits") }}>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to='/suits'>Suits</Link> {menu==="Suits"?<hr/>:<></>}
                     </li>
-                    <li onClick={() => { setMenu("PartWear") }}>
+                    <li onClick={() => { setMenu("PartyWear") }}>
                         <Link style={{ textDecoration: 'none', color: 'black' }} to='/partywear'>PartyWear</Link> {menu==="PartWear"?<hr/>:<></>}
                     </li>
                 </ul>

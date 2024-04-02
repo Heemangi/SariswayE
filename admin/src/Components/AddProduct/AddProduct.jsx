@@ -29,7 +29,7 @@ const AddProduct = () => {
     formData.append('product', image);
 
     //Fetching product from /upload in backend
-    await fetch('http://localhost:4000/upload',{
+    await fetch('https://backend-sarisway.onrender.com/upload',{
       method:'POST',
       headers:{
         Accept:'application/json',
@@ -42,7 +42,7 @@ const AddProduct = () => {
     {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch('http://localhost:4000/addproduct',{
+      await fetch('https://backend-sarisway.onrender.com/addproduct',{
         method:'POST',
         headers:{
           Accept:'application/json',
