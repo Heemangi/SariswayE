@@ -1,16 +1,57 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import logo from '../Assets/logo_transparent.png';
-import cart from "../Assets/shopping-bag-icon.png"
+import cart from "../Assets/shopping-bag-icon.png";
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
+import debounce from 'lodash/debounce'; // Import lodash debounce function
 
 const Navbar = () => {
-    const [menu, setMenu]= useState("Sarees")
-    const { getTotalCartItems } = useContext(ShopContext)
+    const { allproduct, getTotalCartItems } = useContext(ShopContext);
+    const [menu, setMenu] = useState("Sarees");
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [suggestions, setSuggestions] = useState([]);
+    const navigate = useNavigate(); // Initialize the navigate function for redirection
+
+    useEffect(() => {
+        if (searchQuery.trim() === '') {
+            setSuggestions([]);
+        } else {
+            const suggestions = allproduct.filter(product =>
+                product.name.toLowerCase().includes(searchQuery.toLowerCase())
+            ).slice(0, 5); // Limit suggestions to first 5
+            setSuggestions(suggestions);
+        }
+    }, [searchQuery, allproduct]);
+
+    const debouncedSearch = debounce((query) => {
+        // Redirect to search results page with search query as URL parameter
+        navigate(`/search?q=${query}`);
+    }, 300);
     
+    const handleSearchChange = (event) => {
+        const query = event.target.value;
+        setSearchQuery(query);
+        debouncedSearch(query);
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+            // Clear suggestions when Enter key is pressed
+            setSuggestions([]);
+        }
+    }
+
+    const handleSearch = () => {
+        // Redirect to search results page with search query as URL parameter
+        navigate(`/search?q=${searchQuery}`);
+    }
+
+
     return (
         <div className='navbar'>
             <div className="navlogo">
@@ -37,8 +78,18 @@ const Navbar = () => {
             </div>
 
             <div className="search-container">
-                <input type="text" placeholder="Search" className="search-bar" />
-                <FontAwesomeIcon icon={faSearch} className='search-icon'/>
+                <input type="text" placeholder="Search" className="search-bar" 
+                       value={searchQuery} onChange={handleSearchChange} onKeyPress={handleKeyPress} />
+                <FontAwesomeIcon icon={faSearch} className='search-icon' onClick={handleSearch} />
+                <div className="suggestions">
+                    {suggestions.length > 0 && (
+                        <ul>
+                            {suggestions.map((suggestion, index) => (
+                                <li key={index} onClick={() => setSearchQuery(suggestion.name)}>{suggestion.name}</li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
 
             <div className="navright">

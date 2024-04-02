@@ -14,6 +14,7 @@ import sarees_banner from "./Components/Assets/sarees.jpg";
 import lehanga_banner from "./Components/Assets/lehanga.png";
 import suits_banner from "./Components/Assets/suits.jpg";
 import party_banner from "./Components/Assets/lehanga_banner.jpg";
+import SearchPage from './Pages/SearchPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/product' element={<Product/>}>
             <Route path=':productId' element={<Product/>}/>
           </Route>
+          <Route path="/search" element={<SearchPage />} />
           <Route path='/login' element={<LoginSignup/>}/>
           <Route path='/cart' element={<Cart/>}/>
         </Routes>

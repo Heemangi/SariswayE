@@ -12,6 +12,8 @@ app.use(cors());
 
 mongoose.connect("mongodb+srv://heemangirupani28:Heemangirupani28@cluster0.rh7dwne.mongodb.net/SariswayEcom")
 
+
+
 app.get("/",(req,res)=>{
     res.send("Express App is Running");
 })
@@ -230,6 +232,18 @@ app.post('/getcart',fetchUser,async(req,res)=>{
     let userData = await Users.findOne({_id:req.user.id});
     res.json(userData.cartData);
 })
+
+app.get('/search', async (req, res) => {
+    try {
+        const query = req.query.q.toLowerCase();
+        // Use Mongoose's find method to search for products
+        const searchResults = await Product.find({ name: { $regex: new RegExp(query, 'i') } });
+        res.json(searchResults);
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 app.listen(port, (error) => {
     if(!error) {
