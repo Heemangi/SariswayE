@@ -204,8 +204,31 @@ const fetchUser = async(req,res,next)=>{
     }
 }
 
+//Adding products to cart
 app.post('/addtocart',fetchUser,async(req,res)=>{
-    
+    console.log("added",req.body.itemId);
+    let userData = await Users.findOne({_id:req.user.id});
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Added")
+})
+
+//Remove Product from cartData
+app.post('/removefromcart',fetchUser,async(req,res)=>{
+    console.log("removed",req.body.itemId);
+    let userData = await Users.findOne({_id:req.user.id});
+    if( userData.cartData[req.body.itemId]>0){
+    userData.cartData[req.body.itemId] -= 1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Added");
+    }
+})
+
+//Getting user's cart data
+app.post('/getcart',fetchUser,async(req,res)=>{
+    console.log("GetCart")
+    let userData = await Users.findOne({_id:req.user.id});
+    res.json(userData.cartData);
 })
 
 app.listen(port, (error) => {

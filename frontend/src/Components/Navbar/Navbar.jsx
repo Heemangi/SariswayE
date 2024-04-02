@@ -43,12 +43,12 @@ const Navbar = () => {
 
             <div className="navright">
                 {localStorage.getItem('auth-token') ? (
-                    <button onClick={() => {
+                    <button className='logout-button' onClick={() => {
                         localStorage.removeItem('auth-token');
                         window.location.replace('/')
-                    }}>LogOut</button>
+                    }}>Log Out</button>
                 ) : (
-                    <Link to='/login'><button>Login</button></Link>
+                    <Link to='/login'><button className='login-button'>Log In</button></Link>
                 )}
                 <Link to="/cart"> 
                     <img src={cart} alt="Cart" className='cart-icon'/>

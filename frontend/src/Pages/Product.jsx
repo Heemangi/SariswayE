@@ -7,13 +7,13 @@ import DescriptionBox from '../Components/DescriptionBox/DescriptionBox.jsx';
 import RelatedProducts from '../Components/RelatedProducts/RelatedProducts.jsx';
 
 const Product = () => {
-  const { all_products } = useContext(ShopContext);
+  const { allproduct } = useContext(ShopContext);
   const { productId } = useParams();
   
   // console.log("Product ID:", productId);
   // console.log("All Products:", all_products);
   
-  const product = all_products?.find((e) => e.id === Number(productId));
+  const product = allproduct?.find((e) => e.id === Number(productId));
 
   return (
     <div>
