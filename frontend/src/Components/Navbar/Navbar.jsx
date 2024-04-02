@@ -6,7 +6,7 @@ import cart from "../Assets/shopping-bag-icon.png";
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
-import debounce from 'lodash/debounce'; // Import lodash debounce function
+import debounce from 'lodash/debounce'; 
 
 const Navbar = () => {
     const { allproduct, getTotalCartItems } = useContext(ShopContext);
@@ -14,7 +14,7 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
-    const navigate = useNavigate(); // Initialize the navigate function for redirection
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         if (searchQuery.trim() === '') {
